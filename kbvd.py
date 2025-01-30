@@ -10,14 +10,13 @@ data_produksi = pd.read_csv('produksi-penumpang-dan-b.csv', sep=';')
 data_kelompok_barang = pd.read_csv('produksi-barang-kelompok.csv', sep=';')
 
 #NUMERIK
-
-
 data_pelayanan['PNP BER TEPAT (%)'] = pd.to_numeric(data_pelayanan['PNP BER TEPAT (%)'].str.replace(',', '.'))
 data_pelayanan['PNP DTG TEPAT (%)'] = pd.to_numeric(data_pelayanan['PNP DTG TEPAT (%)'].str.replace(',', '.'))
 data_pelayanan['BRG BER TEPAT (%)'] = pd.to_numeric(data_pelayanan['BRG BER TEPAT (%)'].str.replace(',', '.'))
 data_pelayanan['BRG DTG TEPAT (%)'] = pd.to_numeric(data_pelayanan['BRG DTG TEPAT (%)'].str.replace(',', '.'))
 
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.H1("Dashboard Transportasi Umum"),
